@@ -1,0 +1,10 @@
+name: Publish Docker
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    run-on: ubuntu-latest
+    step:
+      - uses: actions/chekout@master
+      - name: Publish to registry

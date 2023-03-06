@@ -1,0 +1,21 @@
+import {
+  PipeTransform,
+  ArgumentMetadata,
+  Injectable,
+  BadRequestException,
+} from '@nestjs/common';
+import { Types } from 'mongoose';
+import { ID_VALIDATION_ERROR } from './id-validation.constants';
+
+@Injectable()
+export class IdValidationPipes implements PipeTransform {
+  transform(value: string, metadata: ArgumentMetadata): any {
+    if (metadata.type !== 'param') {
+      return value;
+    }
+    if (!Types.ObjectId.isValid(value)) {
+      throw new BadRequestException(ID_VALIDATION_ERROR);
+    }
+    return value;
+  }
+}
