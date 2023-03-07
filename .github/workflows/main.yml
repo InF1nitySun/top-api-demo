@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     run-on: ubuntu-latest
-    step:
+    steps:
       - uses: actions/chekout@master
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
