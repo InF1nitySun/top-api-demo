@@ -3,6 +3,9 @@ name: Publish Docker
 on:
   push:
     branches: [master]
+permissions:
+  id-token: write
+  contents: read # default
 
 jobs:
   build:
