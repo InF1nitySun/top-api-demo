@@ -11,13 +11,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/chekout@v2
+      - uses: actions/chekout@v3
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           token: ${{ secrets.MY_NEW_TOKEN }}
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/InF1nitySun/top-api-demo/top-api-demo
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
           tags: "develop"
